@@ -1,0 +1,13 @@
+{
+    "name": "stechstudio/laravel-ssh-tunnel",
+    "description": "Easy creation & maintenance of an SSH Tunnel for Laravel/Lumen",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Bubba Hines",
+            "email": "rob@stechstudio.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
