@@ -1,7 +1,7 @@
-<?php namespace stechstudio\Tunneler\Console;
+<?php namespace STS\Tunneler\Console;
 
 use Illuminate\Console\Command;
-use stechstudio\Tunneler\Jobs\CreateTunnel;
+use STS\Tunneler\Jobs\CreateTunnel;
 
 class TunnelerCommand extends Command {
     /**

@@ -17,7 +17,7 @@ composer require stechstudio/laravel-ssh-tunnel
 ```
 Then register the provider
 ```php
-$app->register(stechstudio\Tunneler\TunnelerServiceProvider::class);
+$app->register(STS\Tunneler\TunnelerServiceProvider::class);
 ```
 in your `bootstrap/app.php` for Lumen services or add it to your `providers` array in `config/app.php` for Laravel applications.
 
@@ -102,7 +102,7 @@ Perhaps your application rarely needs to do this, but when it does, you'd like t
 
 ```php
 $app->get('/mysql_tunnel', function () use ($app) {
-    dispatch(new stechstudio\Tunneler\Jobs\CreateTunnel());
+    dispatch(new STS\Tunneler\Jobs\CreateTunnel());
     
     $users = DB::connection('mysql_tunnel')
             ->table('users')

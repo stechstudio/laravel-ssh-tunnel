@@ -1,8 +1,8 @@
-<?php namespace	stechstudio\Tunneler;
+<?php namespace	STS\Tunneler;
 
 use Illuminate\Support\ServiceProvider;
-use stechstudio\Tunneler\Console\TunnelerCommand;
-use stechstudio\Tunneler\Jobs\CreateTunnel;
+use STS\Tunneler\Console\TunnelerCommand;
+use STS\Tunneler\Jobs\CreateTunnel;
 
 
 class TunnelerServiceProvider extends ServiceProvider{
@@ -17,7 +17,7 @@ class TunnelerServiceProvider extends ServiceProvider{
      * Default path to configuration
      * @var string
      */
-    protected $configPath = __DIR__ . '/config/tunneler.php';
+    protected $configPath = __DIR__ . '/../config/tunneler.php';
 
 
     public function boot()

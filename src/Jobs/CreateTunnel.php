@@ -1,4 +1,4 @@
-<?php namespace stechstudio\Tunneler\Jobs;
+<?php namespace STS\Tunneler\Jobs;
 
 class CreateTunnel
 {
