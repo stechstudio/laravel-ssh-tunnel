@@ -2,6 +2,14 @@
     "name": "stechstudio/laravel-ssh-tunnel",
     "description": "Easy creation & maintenance of an SSH Tunnel for Laravel/Lumen",
     "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "ssh",
+        "tunnel",
+        "mysql",
+        "lumen",
+        "laravel"
+    ],
     "authors": [
         {
             "name": "Bubba Hines",
