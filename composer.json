@@ -10,6 +10,15 @@
         "lumen",
         "laravel"
     ],
+    "autoload": {
+        "classmap": [
+        ],
+        "psr-4": {
+            "STS\\Tunneler\\": "src"
+        },
+        "files": [
+        ]
+    },
     "authors": [
         {
             "name": "Bubba Hines",
