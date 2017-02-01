@@ -43,7 +43,7 @@ class TunnelerServiceProvider extends ServiceProvider{
         }
         $this->mergeConfigFrom($this->configPath, 'tunneler');
 
-        $this->app['command.tunneler.activate'] = $this->app->share(
+        $this->app->singleton('command.tunneler.activate',
             function ($app) {
                 return new TunnelerCommand();
             }
