@@ -59,7 +59,7 @@ class TunnelerServiceProvider extends ServiceProvider{
      */
     public function provides()
     {
-        return array('command.tunneler.activate');
+        return ['command.tunneler.activate'];
     }
 
 }
