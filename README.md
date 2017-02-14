@@ -11,7 +11,13 @@ We had a similar challenge, specifically accessing a MySQL database over an SSH 
 
 So we wrote this package. We hope you enjoy it!
 
+## Requirements
+This package has been tested against Laravel/Lumen versions 5.2. 5.3, and 5.4. 
+
+We do not support version <=5.1.
+
 ## Installation
+
 ```
 composer require stechstudio/laravel-ssh-tunnel
 ```
