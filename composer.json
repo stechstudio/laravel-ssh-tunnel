@@ -26,5 +26,7 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "illuminate/support": "5.2.x|5.3.x|5.4.x"
+    }
 }

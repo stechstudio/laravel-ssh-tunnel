@@ -73,7 +73,7 @@ class CreateTunnel
      * Verifies whether the tunnel is active or not.
      * @return bool
      */
-    protected function verifyTunnel(): bool
+    protected function verifyTunnel()
     {
         return $this->runCommand($this->ncCommand);
     }
@@ -83,7 +83,7 @@ class CreateTunnel
      * @param $command
      * @return bool
      */
-    protected function runCommand($command): bool
+    protected function runCommand($command)
     {
         $return_var = 1;
         exec($command, $this->output, $return_var);
