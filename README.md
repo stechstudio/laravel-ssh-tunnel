@@ -6,13 +6,13 @@ Access a service on a remote host, via an SSH Tunnel! For example, people have b
  - [Connect to a mysql database via SSH through PHP](http://stackoverflow.com/questions/18069658/connect-to-a-mysql-database-via-ssh-through-php)
  - [Connect to remote MySQL database with PHP using SSH](http://stackoverflow.com/questions/4927056/connect-to-remote-mysql-database-with-php-using-ssh)
  - [Laravel MySql DB Connection with SSH](http://stackoverflow.com/questions/25495364/laravel-mysql-db-connection-with-ssh)
- 
+
 We had a similar challenge, specifically accessing a MySQL database over an SSH Tunnel and all of the Questions and Answers were helpful in finding a solution. However, we wanted something that would just plug and play with our Laravel applications and Lumen Services.
 
 So we wrote this package. We hope you enjoy it!
 
 ## Requirements
-This package has been tested against Laravel/Lumen versions 5.2. 5.3, and 5.4. 
+This package has been tested against Laravel/Lumen versions 5.2. 5.3, and 5.4.
 
 We do not support version <=5.1.
 
@@ -36,6 +36,10 @@ TUNNELER_NC_PATH=/usr/bin/nc
 TUNNELER_SSH_PATH=/usr/bin/ssh
 ; Path to the nohup executable
 TUNNELER_NOHUP_PATH=/usr/bin/nohup
+
+; Log messages for troubleshooting
+SSH_VERBOSITY=
+NOHUP_LOG=/dev/null
 
 ; The identity file you want to use for ssh auth
 TUNNELER_IDENTITY_FILE=/home/user/.ssh/id_rsa
@@ -62,7 +66,7 @@ TUNNELER_ON_BOOT=false
 ```
 
 ## Quickstart
-The simplest way to use the Tunneler is to set `TUNNELER_ON_BOOT=true` in your `.env` file. This will ensure the tunnel is in place everytime the framework bootstraps. 
+The simplest way to use the Tunneler is to set `TUNNELER_ON_BOOT=true` in your `.env` file. This will ensure the tunnel is in place everytime the framework bootstraps.
 
 However, there is minimal performance impact because the tunnel will get reused. You only have to bear the connection costs when the tunnel has been disconnected for some reason.
 
@@ -90,7 +94,7 @@ And there you have it. Go set up your Eloquent models now.
 php artisan tunneler:activate
 ```
 
-This artisan command will either verify the connection is up, or will create the connection. This probably isn't of great benefit for running manually, apart for testing your configuration. 
+This artisan command will either verify the connection is up, or will create the connection. This probably isn't of great benefit for running manually, apart for testing your configuration.
 
 However, if you would like to ensure that the tunnel is available all the time, and not do the work on bootstrap, you can use the [Laravel Scheduler](https://laravel.com/docs/5.3/scheduling) to schedule the artisan command to run at whatever interval you think is best to maintain your connection. In your `App\Console\Kernel` for example:
 
@@ -109,11 +113,11 @@ Perhaps your application rarely needs to do this, but when it does, you'd like t
 ```php
 $app->get('/mysql_tunnel', function () use ($app) {
     dispatch(new STS\Tunneler\Jobs\CreateTunnel());
-    
+
     $users = DB::connection('mysql_tunnel')
             ->table('users')
             ->get();
-    
+
     dd($users);
 });
 

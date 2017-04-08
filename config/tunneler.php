@@ -16,5 +16,7 @@ return [
     'port' => env('TUNNELER_PORT'),
     'wait' => env('TUNNELER_CONN_WAIT', '500000'),
 
-    'on_boot' => filter_var(env('TUNNELER_ON_BOOT', false), FILTER_VALIDATE_BOOLEAN)
+    'on_boot' => filter_var(env('TUNNELER_ON_BOOT', false), FILTER_VALIDATE_BOOLEAN),
+    'ssh_verbosity' => env('SSH_VERBOSITY',''),
+    'nohup_log' => env('NOHUP_LOG', '/dev/null'),
 ];

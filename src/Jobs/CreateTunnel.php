@@ -29,8 +29,9 @@ class CreateTunnel
             config('tunneler.local_port')
         );
 
-        $this->sshCommand = sprintf('%s -N -i %s -L %d:%s:%d -p %d %s@%s',
+        $this->sshCommand = sprintf('%s %s -N -i %s -L %d:%s:%d -p %d %s@%s',
             config('tunneler.ssh_path'),
+            config('tunneler.ssh_verbosity'),
             config('tunneler.identity_file'),
             config('tunneler.local_port'),
             config('tunneler.bind_address'),
@@ -64,7 +65,11 @@ class CreateTunnel
      */
     protected function createTunnel()
     {
-        $this->runCommand(sprintf('%s %s > /dev/null &', config('tunneler.nohup_path'), $this->sshCommand));
+        $this->runCommand(sprintf('%s %s >> %s 2>&1 &',
+            config('tunneler.nohup_path'),
+            $this->sshCommand,
+            config('tunneler.nohup_log')
+        ));
         // Ensure we wait long enough for it to actually connect.
         usleep(config('tunneler.wait'));
     }
