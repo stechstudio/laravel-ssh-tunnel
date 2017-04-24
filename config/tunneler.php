@@ -18,5 +18,6 @@ return [
 
     'on_boot' => filter_var(env('TUNNELER_ON_BOOT', false), FILTER_VALIDATE_BOOLEAN),
     'ssh_verbosity' => env('SSH_VERBOSITY',''),
+    'ssh_options' => env('TUNNELER_SSH_OPTIONS', ''),
     'nohup_log' => env('NOHUP_LOG', '/dev/null'),
 ];

@@ -63,6 +63,9 @@ TUNNELER_CONN_WAIT=500000
 
 ; Do you want to ensure you have the Tunnel in place for each bootstrap of the framework?
 TUNNELER_ON_BOOT=false
+
+; Do you want to use additional SSH options when the tunnel is created?
+TUNNELER_SSH_OPTIONS="-o StrictHostKeyChecking=no"
 ```
 
 ## Quickstart
