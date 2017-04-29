@@ -30,8 +30,14 @@ in your `bootstrap/app.php` for Lumen services or add it to your `providers` arr
 ## Configuration
 All configuration can and should be done in your `.env` file.
 ```ini
+; Process used to verify connection
+; Use bash if your distro uses nmap-ncat (RHEL/CentOS 7.x) 
+TUNNELER_VERIFY_PROCESS=nc
+
 ; Path to the nc executable
 TUNNELER_NC_PATH=/usr/bin/nc
+; Path to the bash executable
+TUNNELER_BASH_PATH=/usr/bin/bash
 ; Path to the ssh executable
 TUNNELER_SSH_PATH=/usr/bin/ssh
 ; Path to the nohup executable

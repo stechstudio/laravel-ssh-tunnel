@@ -23,8 +23,15 @@ class CreateTunnel
 
     public function __construct()
     {
+
         $this->ncCommand = sprintf('%s -z %s %d  > /dev/null 2>&1',
             config('tunneler.nc_path'),
+            config('tunneler.local_address'),
+            config('tunneler.local_port')
+        );
+
+        $this->bashCommand = sprintf('timeout 1 %s -c \'cat < /dev/null > /dev/tcp/%s/%d\' > /dev/null 2>&1',
+            config('tunneler.bash_path'),
             config('tunneler.local_address'),
             config('tunneler.local_port')
         );
@@ -46,13 +53,13 @@ class CreateTunnel
 
     public function handle(): int
     {
-        if ($this->verifyTunnel()){
+        if ($this->verifyTunnel()) {
             return 1;
         }
 
         $this->createTunnel();
 
-        if ($this->verifyTunnel()){
+        if ($this->verifyTunnel()) {
             return 2;
         }
 
@@ -81,6 +88,10 @@ class CreateTunnel
      */
     protected function verifyTunnel()
     {
+        if (config('tunneler.verify_process') == 'bash') {
+            return $this->runCommand($this->bashCommand);
+        }
+
         return $this->runCommand($this->ncCommand);
     }
 
