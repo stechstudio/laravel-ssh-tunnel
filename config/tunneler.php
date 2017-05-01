@@ -1,6 +1,10 @@
 <?php
 return [
+
+    'verify_process' => env('TUNNELER_VERIFY_PROCESS', 'nc'),
+
     'nc_path' => env('TUNNELER_NC_PATH', 'nc'),
+    'bash_path' => env('TUNNELER_BASH_PATH', 'bash'),
     'ssh_path' => env('TUNNELER_SSH_PATH', 'ssh'),
     'nohup_path' => env('TUNNELER_NOHUP_PATH', 'nohup'),
 
@@ -20,4 +24,5 @@ return [
     'ssh_verbosity' => env('SSH_VERBOSITY',''),
     'ssh_options' => env('TUNNELER_SSH_OPTIONS', ''),
     'nohup_log' => env('NOHUP_LOG', '/dev/null'),
+
 ];
