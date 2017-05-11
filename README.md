@@ -21,11 +21,21 @@ We do not support version <=5.1.
 ```
 composer require stechstudio/laravel-ssh-tunnel
 ```
-Then register the provider
+
+### Register the Provider:
+
+For Lumen services, add:
+
 ```php
 $app->register(STS\Tunneler\TunnelerServiceProvider::class);
 ```
-in your `bootstrap/app.php` for Lumen services or add it to your `providers` array in `config/app.php` for Laravel applications.
+to `bootstrap/app.php`. For Laravel applications, add:
+
+```php
+STS\Tunneler\TunnelerServiceProvider::class,
+```
+
+to the `providers` array in `config/app.php`.
 
 ## Configuration
 All configuration can and should be done in your `.env` file.
