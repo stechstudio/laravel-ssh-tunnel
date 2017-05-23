@@ -89,7 +89,7 @@ The simplest way to use the Tunneler is to set `TUNNELER_ON_BOOT=true` in your `
 
 However, there is minimal performance impact because the tunnel will get reused. You only have to bear the connection costs when the tunnel has been disconnected for some reason.
 
-Then you can just configure your service, we will demonstrate a database connection.
+Then you can just configure your service, which we will demonstrate using a database connection. Add this under `'connections'` in your `config/database.php` file
 
 ```php
 'mysql_tunnel' => [
