@@ -77,6 +77,10 @@ TUNNELER_PORT=sshport
 ; Depending on your network speeds you will want to modify the default of .5 seconds
 TUNNELER_CONN_WAIT=500000
 
+; How often it is checked if the tunnel is created. Useful if the tunnel creation is sometimes slow, 
+; and you want to minimize waiting times 
+TUNNELER_CONN_TRIES=1
+
 ; Do you want to ensure you have the Tunnel in place for each bootstrap of the framework?
 TUNNELER_ON_BOOT=false
 

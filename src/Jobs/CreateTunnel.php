@@ -58,9 +58,15 @@ class CreateTunnel
         }
 
         $this->createTunnel();
-
-        if ($this->verifyTunnel()) {
-            return 2;
+        
+        $tries = config('tunneler.tries');
+        for ($i = 0; $i < $tries; $i++) {
+            if ($this->verifyTunnel()) {
+                return 2;
+            }
+            
+            // Wait a bit until next iteration
+            usleep(config('tunneler.wait'));
         }
 
         throw new \ErrorException(sprintf("Could Not Create SSH Tunnel with command:\n\t%s\nCheck your configuration.",
