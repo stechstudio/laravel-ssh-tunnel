@@ -85,7 +85,7 @@ TUNNELER_PORT=sshport
 
 ; How long to wait, in microseconds, before testing to see if the tunnel is created.
 ; Depending on your network speeds you will want to modify the default of .5 seconds
-TUNNELER_CONN_WAIT=500000
+TUNNELER_CONN_WAIT=1000000
 
 ; How often it is checked if the tunnel is created. Useful if the tunnel creation is sometimes slow, 
 ; and you want to minimize waiting times 
