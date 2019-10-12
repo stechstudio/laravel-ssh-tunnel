@@ -24,7 +24,7 @@ class CreateTunnel
     public function __construct()
     {
 
-        $this->ncCommand = sprintf('%s -z %s %d  > /dev/null 2>&1',
+        $this->ncCommand = sprintf('%s -vz %s %d  > /dev/null 2>&1',
             config('tunneler.nc_path'),
             config('tunneler.local_address'),
             config('tunneler.local_port')
