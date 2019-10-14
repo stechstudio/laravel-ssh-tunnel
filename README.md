@@ -12,31 +12,15 @@ We had a similar challenge, specifically accessing a MySQL database over an SSH 
 So we wrote this package. We hope you enjoy it!
 
 ## Requirements
-This package has been tested against Laravel/Lumen versions 5.2. 5.3, and 5.4.
+This package has been tested against Laravel/Lumen versions 5.5 and 6.0.
 
-We do not support version <=5.1.
+We do not support version <5.5 now, look at our older, unsupported, versions for that.
 
 ## Installation
 
 ```
 composer require stechstudio/laravel-ssh-tunnel
 ```
-
-### Register the Provider (version 5.4 and earlier):
-
-For Lumen services, add:
-
-```php
-$app->register(STS\Tunneler\TunnelerServiceProvider::class);
-```
-to `bootstrap/app.php`. For Laravel applications, add:
-
-```php
-STS\Tunneler\TunnelerServiceProvider::class,
-```
-
-to the `providers` array in `config/app.php`.
-
 ## Configuration
 All configuration can and should be done in your `.env` file.
 ```ini
@@ -74,7 +58,7 @@ TUNNELER_HOSTNAME=sshhost
 TUNNELER_PORT=sshport
 
 ; How long to wait, in microseconds, before testing to see if the tunnel is created.
-; Depending on your network speeds you will want to modify the default of .5 seconds
+; Depending on your network speeds you will want to modify the default of 1 seconds
 TUNNELER_CONN_WAIT=1000000
 
 ; How often it is checked if the tunnel is created. Useful if the tunnel creation is sometimes slow, 
