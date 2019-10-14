@@ -18,7 +18,7 @@ return [
     'user' => env('TUNNELER_USER'),
     'hostname' => env('TUNNELER_HOSTNAME'),
     'port' => env('TUNNELER_PORT'),
-    'wait' => env('TUNNELER_CONN_WAIT', '500000'),
+    'wait' => env('TUNNELER_CONN_WAIT', '1000000'),
     'tries' => env('TUNNELER_CONN_TRIES', 1),
 
     'on_boot' => filter_var(env('TUNNELER_ON_BOOT', false), FILTER_VALIDATE_BOOLEAN),

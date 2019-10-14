@@ -22,16 +22,6 @@ We do not support version <=5.1.
 composer require stechstudio/laravel-ssh-tunnel
 ```
 
-### Register the Provider (Laravel version 5.8):
-
-Inside the `config/app.php` file under `Package Service Providers`, add:
-
-```STS\Tunneler\TunnelerServiceProvider::class,```
-
-And under `Application Service Providers`, add:
-
-```STS\Tunneler\TunnelerServiceProvider::class,```
-
 ### Register the Provider (version 5.4 and earlier):
 
 For Lumen services, add:
@@ -85,7 +75,7 @@ TUNNELER_PORT=sshport
 
 ; How long to wait, in microseconds, before testing to see if the tunnel is created.
 ; Depending on your network speeds you will want to modify the default of .5 seconds
-TUNNELER_CONN_WAIT=500000
+TUNNELER_CONN_WAIT=1000000
 
 ; How often it is checked if the tunnel is created. Useful if the tunnel creation is sometimes slow, 
 ; and you want to minimize waiting times 
