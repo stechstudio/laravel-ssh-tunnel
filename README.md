@@ -11,11 +11,6 @@ We had a similar challenge, specifically accessing a MySQL database over an SSH 
 
 So we wrote this package. We hope you enjoy it!
 
-## Requirements
-This package has been tested against Laravel/Lumen versions 5.5 and 6.0.
-
-We do not support version <5.5 now, look at our older, unsupported, versions for that.
-
 ## Installation
 
 ```
