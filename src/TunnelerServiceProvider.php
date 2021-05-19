@@ -2,6 +2,7 @@
 
 use Illuminate\Support\ServiceProvider;
 use STS\Tunneler\Console\TunnelerCommand;
+use STS\Tunneler\Console\TunnelerReset;
 use STS\Tunneler\Jobs\CreateTunnel;
 
 
@@ -50,6 +51,14 @@ class TunnelerServiceProvider extends ServiceProvider{
         );
 
         $this->commands('command.tunneler.activate');
+
+        $this->app->singleton('command.tunneler.reset',
+            function ($app) {
+                return new TunnelerReset();
+            }
+        );
+
+        $this->commands('command.tunneler.reset');
     }
 
     /**
