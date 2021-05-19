@@ -106,7 +106,8 @@ class CreateTunnel
      */
 
     public function destoryTunnel(){
-        return $this->runCommand('pkill -f "'.$this->sshCommand.'"');
+        $ssh_command = preg_replace('/[\s]{2}[\s]*/',' ',$this->sshCommand);
+        return $this->runCommand('pkill -f "'.$ssh_command.'"');
     }
 
     /**
