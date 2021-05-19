@@ -58,13 +58,13 @@ class CreateTunnel
         }
 
         $this->createTunnel();
-        
+
         $tries = config('tunneler.tries');
         for ($i = 0; $i < $tries; $i++) {
             if ($this->verifyTunnel()) {
                 return 2;
             }
-            
+
             // Wait a bit until next iteration
             usleep(config('tunneler.wait'));
         }
@@ -99,6 +99,14 @@ class CreateTunnel
         }
 
         return $this->runCommand($this->ncCommand);
+    }
+
+    /*
+     * Use pkill to kill the SSH tunnel
+     */
+
+    public function destoryTunnel(){
+        return $this->runCommand('pkill -f "'.$this->sshCommand.'"');
     }
 
     /**
