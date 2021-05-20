@@ -105,7 +105,7 @@ class CreateTunnel
      * Use pkill to kill the SSH tunnel
      */
 
-    public function destoryTunnel(){
+    public function destroy(){
         $ssh_command = preg_replace('/[\s]{2}[\s]*/',' ',$this->sshCommand);
         return $this->runCommand('pkill -f "'.$ssh_command.'"');
     }
