@@ -38,7 +38,7 @@ class TunnelerReset extends Command
     public function handle()
     {
         $tunnel = new CreateTunnel();
-        $tunnel->destoryTunnel();
+        $tunnel->destroyTunnel();
 
         \Artisan::call('tunneler:activate');
     }
