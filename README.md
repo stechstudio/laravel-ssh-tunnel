@@ -1,3 +1,6 @@
+# Deprecated
+It has been about four years since we have used this package internally and we are no longer in a position to continue supporting it. If anyone in the community would like to take over support of the package, please let us know and we can coordinate a transition.
+
 # Laravel SSH Tunnel
 Access a service on a remote host, via an SSH Tunnel! For example, people have been asking how to connect to a MySQL server over SSH in PHP for years.
 
